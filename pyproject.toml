@@ -1,0 +1,20 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "screenstream-mcp"
+version = "0.1.0"
+description = "MCP server for capturing screenshots from ScreenStream (Android MJPEG screen mirror)"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp[cli]>=1.0.0",
+    "requests>=2.31.0",
+    "Pillow>=10.0.0",
+]
+
+[project.scripts]
+screenstream-mcp = "screenstream_mcp.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/screenstream_mcp"]
